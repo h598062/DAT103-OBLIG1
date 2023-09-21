@@ -8,11 +8,14 @@ else
   mkdir ./example-process-view
   echo "Created example-process-view directory."
 fi
-last_num=0
+
 info_regex='T=([0-9]+) Scheduled: T([0-9]+) Ready: (T[0-9]+(, T[0-9]+)*)?'
 ./gradlew run | while IFS= read -r line; do
   echo $line 
   if [[ $line =~ $info_regex ]]; then
+    # hvis en bruker bash istedenfor zsh så erstatt match med BASH_REMATCH.
+    # match og BASH_REMATCH er innebygde variabler som holder en liste med
+    # alle captured grupper fra regex matching med if [[ string =~ regex ]]
     #echo $match
     filename="T${match[2]}-proc.log"
     echo "$filename"
