@@ -27,7 +27,8 @@ public class RRScheduler implements Scheduler {
 		return Optional.of(selected.getId());
 	}
 
-	public @Override List<Integer> ready() {
+	@Override
+	public List<Integer> ready() {
 		return ready.stream()
 		            .map((Task t) -> t.getId())
 		            .toList();
