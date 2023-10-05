@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 if [[ -d "./example-process-view" ]]; then
   echo "example-process-view directory exists, continuing..." 
